@@ -12,7 +12,7 @@ const Nav2 = () => {
   };
   const handleLogout = () => {
     axios
-      .get("http://localhost:3000/auth/logout")
+      .get("https://chartify-2-0.onrender.com/auth/logout")
       .then((res) => {
         if (res.data.status) {
           navigate("/");
@@ -25,7 +25,7 @@ const Nav2 = () => {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/verify")
+      .get("https://chartify-2-0.onrender.com/auth/verify")
       .then((res) => {
         if (res.data.status) {
           console.log(res.data);

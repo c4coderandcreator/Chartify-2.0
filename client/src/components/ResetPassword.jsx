@@ -12,9 +12,12 @@ const ResetPassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3000/auth/reset-password/" + token, {
-      password,
-    })
+    Axios.post(
+      "https://chartify-2-0.onrender.com/auth/reset-password/" + token,
+      {
+        password,
+      }
+    )
       .then((response) => {
         if (response.data.status) {
           navigate("/login");

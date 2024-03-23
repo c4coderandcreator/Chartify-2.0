@@ -14,7 +14,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3000/auth/login", {
+    Axios.post("https://chartify-2-0.onrender.com/auth/login", {
       email,
       password,
     })

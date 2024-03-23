@@ -11,7 +11,7 @@ const Home = () => {
   };
   const handleLogout = () => {
     axios
-      .get("http://localhost:3000/auth/logout")
+      .get("https://chartify-2-0.onrender.com/auth/logout")
       .then((res) => {
         if (res.data.status) {
           navigate("/signup");
