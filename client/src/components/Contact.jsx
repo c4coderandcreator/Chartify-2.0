@@ -70,7 +70,7 @@ export default function Contact() {
           />
           <label className="text-white py-2">Email</label>
           <input
-            className="opacity-95 text-black bg-indigo-700 h-8 rounded-md p-2 text-xs md:text-base placeholder-white"
+            className="opacity-95 text-white bg-indigo-700 h-8 rounded-md p-2 text-xs md:text-base placeholder-white"
             type="email"
             name="user_email"
             placeholder="Enter your E-mail"
@@ -79,7 +79,7 @@ export default function Contact() {
           />
           <label className="text-white py-2">Message</label>
           <textarea
-            className="h-32 opacity-95 text-black bg-indigo-700 rounded-md p-2 text-xs md:text-base placeholder-white "
+            className="h-32 opacity-95 text-white bg-indigo-700 rounded-md p-2 text-xs md:text-base placeholder-white "
             name="message"
             placeholder="Type your Message"
             required

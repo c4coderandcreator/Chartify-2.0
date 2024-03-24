@@ -57,7 +57,7 @@ const Nav = () => {
         <div className=" md:hidden w-screen flex flex-col items-center text-lg font-normal absolute top-16 bg-black">
           <ul className=" m-1">
             <li className="font-semibold pr-2">
-              <Link to="/dashboard">Home</Link>
+              <Link to="/">Home</Link>
             </li>
           </ul>
           <ul className=" m-1 pb-2">

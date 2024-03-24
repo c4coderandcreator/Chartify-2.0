@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -22,25 +22,6 @@ const Nav2 = () => {
         console.log(err);
       });
   };
-  axios.defaults.withCredentials = true;
-  useEffect(() => {
-    axios
-      .get("https://chartify-2-0.onrender.com/auth/verify")
-      .then((res) => {
-        if (res.data.status) {
-          console.log(res.data);
-          navigate("/dashboard");
-        } else {
-          if (window.location.pathname === "/") {
-            alert("Please login");
-          }
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        console.error("Error verifying authentication:", error);
-      });
-  }, []);
 
   return (
     <>

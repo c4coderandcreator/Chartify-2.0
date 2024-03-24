@@ -32,8 +32,13 @@ const Login = () => {
   return (
     <>
       <Nav />
+      <p className="text-white text-sm text-center bg-indigo-700 rounded-lg py-2 mt-4 w-full md:w-[40vw] md:mx-96">
+        Note : If you are facing difficulty in logging in, <br />
+        make sure you have cookies enabled in your browser{" "}
+      </p>
+
       <div className="flex flex-wrap justify-center items-center h-[70vh] md:h-full w-full  gap-4">
-        <div className="md:h-[90vh] flex items-center justify-center order-2 md:pr-8">
+        <div className=" flex items-center justify-center order-2 md:pr-8">
           <div className="w-full  bg-black flex flex-col items-center border-2 rounded-lg">
             <h2 className="bg-indigo-700 py-4 px-4 text-3xl text-white w-full text-center">
               Login
@@ -79,6 +84,7 @@ const Login = () => {
             </form>
           </div>
         </div>
+
         <div className="hidden lg:flex md:py-20  mr-14 order-1">
           <img className="w-full md:h-[55vh]" src={loginImg} alt="image" />
         </div>

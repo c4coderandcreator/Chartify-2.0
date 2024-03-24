@@ -1,7 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import chartImg from "../assets/Defaultchart.svg";
 import Nav2 from "./Nav2";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true); // Add loading state
+
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    const verifyAuthentication = async () => {
+      try {
+        const response = await axios.get(
+          "https://chartify-2-0.onrender.com/auth/verify"
+        );
+        if (response.data.status) {
+          console.log(response.data);
+          setLoading(false);
+        } else {
+          if (window.location.pathname === "/") {
+            alert("Please login");
+          }
+          navigate("/");
+        }
+      } catch (error) {
+        console.error("Error verifying authentication:", error);
+        navigate("/");
+      }
+    };
+
+    verifyAuthentication();
+  }, [navigate]);
+
   // const [isOpen, setIsOpen] = useState(false);
   // const navigate = useNavigate();
 
@@ -48,6 +79,10 @@ const Dashboard = () => {
     console.log(newChartUrl);
     console.log(chartUrl);
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -207,7 +242,7 @@ const Dashboard = () => {
               </button>
             </div>
           </form>
-          <p className="text-sm py-1 mt-2">
+          <p className="text-sm text-white py-1 mt-2">
             {" "}
             Note : sample year : 2020,2022,2027,2028... <br />
             sample data : 10000,2345,300,1400...
