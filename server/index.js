@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-// import cookieParser from "cookie-parser";
+import cookieParser from "cookie-parser";
 dotenv.config();
 import { UserRouter } from "./routes/user.js";
 
@@ -14,7 +14,7 @@ app.use(
     credentials: true,
   })
 );
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use("/auth", UserRouter);
 
 mongoose.connect(`${process.env.DBURL}`);
