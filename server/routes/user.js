@@ -119,7 +119,7 @@ router.get("/verify", verifyUser, (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  // res.clearCookie("token");
+  res.clearCookie("token");
   return res.json({ status: true });
 });
 
