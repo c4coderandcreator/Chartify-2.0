@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const ResetPassword = () => {
