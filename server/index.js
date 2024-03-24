@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://chartify-2-0.onrender.com"],
+    origin: ["https://chartify-2.netlify.app"],
     credentials: true,
   })
 );

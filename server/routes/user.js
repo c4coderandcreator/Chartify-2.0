@@ -75,7 +75,7 @@ router.post("/forgot-password", async (req, res) => {
       from: process.env.EMAIL,
       to: email,
       subject: "Reset password",
-      text: `https://chartify-2-0.onrender.com/resetPassword/${token}`,
+      text: `https://chartify-2.netlify.app/resetPassword/${token}`,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
