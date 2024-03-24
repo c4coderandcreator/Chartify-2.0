@@ -35,8 +35,8 @@ const Signup = () => {
     <>
       <Nav />
 
-      <div className="h-[70vh] md:h-[90vh] w-full bg-black flex items-center justify-between gap-4">
-        <div className=" text-white px-4 flex flex-col items-center border-2 bg-indigo-700 rounded-lg md:mx-auto mx-2">
+      <div className="h-[70vh] md:h-[90vh] w-full bg-black flex flex-wrap md:flex-nowrap items-center justify-center gap-4">
+        <div className=" text-white px-4 w-full md:w-[22vw] flex flex-col items-center justify-center border-2 bg-indigo-700 rounded-lg md:mx-auto mx-4">
           <h2 className="pt-4 text-3xl mx-auto">Sign Up</h2>
           <form
             className="w-full p-4 flex flex-col gap-4 "

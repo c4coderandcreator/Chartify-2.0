@@ -24,11 +24,12 @@ const Nav2 = () => {
   };
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios
-      .get("https://chartify-2-0.onrender.com/auth/verify")
-      .then((res) => {
-        if (res.data.status) {
-          console.log(res.data);
+    const verifyAuthentication = async () => {
+      try {
+        const response = await axios.get(
+          "https://chartify-2-0.onrender.com/auth/verify"
+        );
+        if (response.data.status) {
           navigate("/dashboard");
         } else {
           if (window.location.pathname === "/") {
@@ -36,10 +37,12 @@ const Nav2 = () => {
           }
           navigate("/");
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error verifying authentication:", error);
-      });
+      }
+    };
+
+    verifyAuthentication();
   }, []);
 
   return (

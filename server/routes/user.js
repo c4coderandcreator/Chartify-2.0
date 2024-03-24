@@ -42,13 +42,7 @@ router.post("/login", async (req, res) => {
   const token = jwt.sign({ username: user.username }, process.env.KEY, {
     expiresIn: "1h",
   });
-  res.cookie("token", token, {
-    httpOnly: true,
-    maxAge: 36000,
-    sameSite: "none",
-    secure: true,
-  });
-  return res.json({ status: true, message: "login successful" });
+  return res.json({ status: true, token: token, message: "login successful" });
 });
 
 router.post("/forgot-password", async (req, res) => {
@@ -106,14 +100,17 @@ router.post("/reset-password/:token", async (req, res) => {
 
 const verifyUser = async (req, res, next) => {
   try {
-    const token = req.cookies.token;
+    // Check for token in Authorization header
+    const token = req.headers.authorization;
     if (!token) {
-      return res.json({ status: false, message: "no token" });
+      return res
+        .status(403)
+        .json({ status: false, message: "No token provided" });
     }
     const decoded = jwt.verify(token, process.env.KEY);
     next();
   } catch (err) {
-    return res.json(err);
+    return res.status(401).json({ status: false, message: "Invalid token" });
   }
 };
 
@@ -122,7 +119,7 @@ router.get("/verify", verifyUser, (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  res.clearCookie("token");
+  // res.clearCookie("token");
   return res.json({ status: true });
 });
 
