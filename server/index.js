@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://chartify-2-0.onrender.com"],
+    origin: ["http://localhost:5173"],
     credentials: true,
   })
 );
