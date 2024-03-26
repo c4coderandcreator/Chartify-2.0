@@ -1,26 +1,26 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
+// import axios from "axios";
 import dataImg from "../assets/data.svg";
 import Nav from "./Nav";
 
 const Home = () => {
-  const navigate = useNavigate();
-  axios.defaults.withCredentials = true;
-  const alertUser = () => {
-    // alert("Please Login 🫂");
-  };
-  const handleLogout = () => {
-    axios
-      .get("https://chartify-2-0.onrender.com/auth/logout")
-      .then((res) => {
-        if (res.data.status) {
-          navigate("/signup");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const navigate = useNavigate();
+  // axios.defaults.withCredentials = true;
+  // const alertUser = () => {
+  //   // alert("Please Login 🫂");
+  // };
+  // const handleLogout = () => {
+  //   axios
+  //     .get("https://chartify-2-0.onrender.com/auth/logout")
+  //     .then((res) => {
+  //       if (res.data.status) {
+  //         navigate("/signup");
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
   return (
     <>
       <Nav />
@@ -31,16 +31,16 @@ const Home = () => {
           </div>
           <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start m-4">
             <button
-              onClick={alertUser}
+              // onClick={alertUser}
               className="w-full text-lg md:text-2xl border-2 hover:border-white bg-indigo-700 hover:bg-white hover:text-indigo-700 text-white md:mr-4 rounded-lg py-2 m-1 md:py-1"
             >
               <Link to="/login">Login</Link>
             </button>
             <button
-              onClick={handleLogout}
+              // onClick={handleLogout}
               className="w-full text-lg md:text-2xl border-2 text-white bg-indigo-700 hover:bg-white hover:text-indigo-700 rounded-lg py-2 m-1 md:py-1"
             >
-              SignUp
+              <Link to="/signup">Signup</Link>
             </button>
           </div>
         </div>
